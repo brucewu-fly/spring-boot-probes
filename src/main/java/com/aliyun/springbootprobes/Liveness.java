@@ -11,7 +11,7 @@ public class Liveness {
   private static Map<String, String> alwaysOk = Collections.singletonMap("status", "OK");
 
   @GetMapping("/liveness")
-  public Map<String, String> testLiveness() {
+  public Map<String, String> liveness() {
     return alwaysOk;
   }
 }
