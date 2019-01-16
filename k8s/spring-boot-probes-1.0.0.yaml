@@ -6,7 +6,12 @@ metadata:
   labels:
     app: spring-boot-probes
 spec:
-  replicas: 3
+  replicas: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 2
   selector:
     matchLabels:
       app: spring-boot-probes
