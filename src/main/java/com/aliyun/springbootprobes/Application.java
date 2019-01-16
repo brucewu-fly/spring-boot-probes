@@ -21,8 +21,7 @@ public class Application {
   }
 
   @RequestMapping("/render")
-  public String render(@RequestParam(value = "name") String name)
-      throws InterruptedException {
+  public String render(@RequestParam(value = "name") String name) throws InterruptedException {
     LOGGER.info("Beginning render " + name);
     String result = doRender(name);
     LOGGER.info("The " + name + " has been rendered");
