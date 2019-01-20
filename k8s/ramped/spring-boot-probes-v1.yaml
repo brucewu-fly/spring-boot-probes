@@ -26,6 +26,9 @@ spec:
         image: registry.cn-hangzhou.aliyuncs.com/log-service/spring-boot-probes:1.0.0
         ports:
         - containerPort: 8080
+        env:
+          - name: VERSION
+            value: v1.0.0
         resources:
           limits:
             cpu: 500m

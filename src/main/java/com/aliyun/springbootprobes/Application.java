@@ -15,6 +15,8 @@ public class Application {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
+  private static final String VERSION = System.getenv("VERSION");
+
   @RequestMapping("/")
   public String home() {
     return "Hello Docker World";
@@ -30,7 +32,7 @@ public class Application {
 
   private String doRender(String name) throws InterruptedException {
     Thread.sleep(1000 * ThreadLocalRandom.current().nextInt(40));
-    return "Hello " + name;
+    return "Hello " + name + VERSION;
   }
 
   public static void main(String[] args) {
