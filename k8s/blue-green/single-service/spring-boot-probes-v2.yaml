@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
@@ -6,12 +7,7 @@ metadata:
     app: spring-boot-probes
 spec:
   replicas: 8
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 3
-      maxUnavailable: 2
-  minReadySeconds: 120
+  minReadySeconds: 60
   selector:
     matchLabels:
       app: spring-boot-probes
@@ -19,7 +15,6 @@ spec:
     metadata:
       labels:
         app: spring-boot-probes
-        version: v1.0.0
     spec:
       containers:
       - name: spring-boot-probes
@@ -28,7 +23,7 @@ spec:
         - containerPort: 8080
         env:
           - name: VERSION
-            value: v1.0.0
+            value: v2.0.0
         resources:
           limits:
             cpu: 500m
