@@ -32,7 +32,7 @@ public class Application {
 
   private String doRender(String name) throws InterruptedException {
     Thread.sleep(1000 * ThreadLocalRandom.current().nextInt(40));
-    return "Hello " + name + VERSION;
+    return "Hello " + name + ", version=" + VERSION;
   }
 
   public static void main(String[] args) {
