@@ -1,3 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: spring-boot-probes
+  name: spring-boot-probes-svc
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: spring-boot-probes
+    version: v1.0.0
+---
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
@@ -48,20 +65,3 @@ spec:
           periodSeconds: 20
           successThreshold: 1
           failureThreshold: 3
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: spring-boot-probes
-  name: spring-boot-probes-svc
-  namespace: default
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 8080
-      protocol: TCP
-      targetPort: 8080
-  selector:
-    app: spring-boot-probes
-    version: v1.0.0
