@@ -1,9 +1,9 @@
 package com.aliyun.springbootprobes;
 
+import ch.sbb.esta.openshift.gracefullshutdown.GracefulshutdownSpringApplication;
 import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,6 +36,6 @@ public class Application {
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
+    GracefulshutdownSpringApplication.run(Application.class, args);
   }
 }
