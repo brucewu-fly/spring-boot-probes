@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: spring-boot-probes
+  labels:
+    app: spring-boot-probes
+spec:
+  hosts:
+    - spring-boot-probes.local
+  gateways:
+    - spring-boot-probes
+  http:
+    - route:
+        - destination:
+            host: spring-boot-probes-svc-v1
+      match:
+        - headers:
+            user-agent:
+              exact: Andriod
+    - route:
+        - destination:
+            host: spring-boot-probes-svc-v2
+      match:
+        - headers:
+            x-api-version:
+              exact: iPhone
